@@ -1,23 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import AddVoucher from "./components/AddVoucher";
+import VoucherList from "./components/VoucherList";
+import EditVoucher from "./components/EditVoucher";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='container'>
+      <Router>
+        <Routes>
+          <Route path="/" element={<VoucherList/>}/>
+          <Route path="/add" element={<AddVoucher/>}/>
+          <Route path="/edit/:id" element={<EditVoucher/>}/>
+        </Routes>
+      </Router>
     </div>
   );
 }
